@@ -47,9 +47,9 @@ if [ $1 = "show" ]; then
     exit 0
 fi
 
-if ([ $2 -eq 0 ] && [ $3 -ne 0 ])
-        then echo "CAN'T SET JITTER WITHOUT DELAY"
-  exit 2
+if ([ $2 -eq 0 ] && [ $3 -ne 0 ]); then
+    echo "CAN'T SET JITTER WITHOUT DELAY"
+  exit 0
 fi
 
 echo " ===== Setup Traffic Limitations for device ${11} ====="

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#can be used to change the settings already set from trafficControll
+
 function show_usage {
     echo ""
     echo "THIS SHOULD ONLY BE USED AFTER trafficConroll is set"

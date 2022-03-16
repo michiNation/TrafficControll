@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#used to configure the setup and set the needed network settings
 
 function show_usage {
     echo ""

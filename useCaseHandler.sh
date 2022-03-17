@@ -8,9 +8,12 @@
 function show_usage {
     echo ""
     echo "It will start the trafficContoll script and set the settings for 2G, 3G or 4G"
+    echo "Can simulate a handover 2G -> 4G"
+    echo "Can simulate a network outage 2G off 2G"
     echo "============================================== "
     echo "Example: sudo ./useCaseHandler.sh enp0s3 2G to 3G"
     echo "Example: sudo ./useCaseHandler.sh enp0s3 2G"
+    echo "Example: sudo ./useCaseHandler.sh enp0s3 2G off"
     echo ""
     echo ""
     echo "Autor: MG"

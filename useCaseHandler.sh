@@ -60,8 +60,16 @@ function Change_to_4G_Usecase {
     echo "Only 4G "
     ./changeSettings.sh 300000 8 5 0 0 75000 8 5 0 0 $1
 }
+function Change_to_NoNetwork_Usecase {
+    #4G LTE 300 000 kbits 75 000 kbits 15ms jitter 5ms
+    echo "Only 4G "
+    ./changeSettings.sh 0 8 5 0 0 0 8 5 0 0 $1
+}
 function Do_Sleep {
    sleep 5
+}
+function Do_Quick_Sleep {
+   sleep 1
 }
 
 
@@ -124,7 +132,27 @@ elif ([ $2 = "4G" ] && [ $3 = "to" ]); then
         echo "change"
         Change_to_3G_Usecase $1
     fi
-  exit 0
+elif ([ $3 = "off" ]); then
+    if [ $# -eq 2 ]; then
+        if [ $2 = "2G" ]; then
+            Start_2G_Usecase $1
+            Do_Quick_Sleep
+            Change_to_NoNetwork_Usecase $1
+            Do_Quick_Sleep
+            Change_to_2G_Usecase $1
+        elif [ $2 = "3G" ]; then
+            Start_3G_Usecase $1 
+            Do_Quick_Sleep
+            Change_to_NoNetwork_Usecase $1
+            Change_to_3G_Usecase $1
+        elif [ $2 = "4G" ]; then
+            Start_4G_Usecase $1
+            Do_Quick_Sleep
+            Change_to_NoNetwork_Usecase $1
+            Do_Quick_Sleep
+            Change_to_4G_Usecase $1
+        fi
+    fi
 fi
 echo "Exit"
 

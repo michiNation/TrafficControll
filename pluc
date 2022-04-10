@@ -1,0 +1,2 @@
+./trafficControll.sh 300000 8 5 3 0 75000 8 5 2 0 enp0s3
+/path/to/Program 2>&1 &

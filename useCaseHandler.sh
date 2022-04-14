@@ -5,7 +5,7 @@
 #uses trafficControll to set the Usecase 2G, 3G or 4G
 #and uses the changeSettings to simulate a handover
 
-packetLoss=3
+packetLoss=0
 
 function show_usage {
     echo ""
@@ -149,11 +149,13 @@ elif ([[ $2 = "3G" ]] && [[ $3 = "to" ]]); then
     fi
 elif ([[ $2 = "4G" ]] && [[ $3 = "to" ]]); then
     if [ $4 = "2G" ]; then
-        echo "Start 4G -> 2G Handoverusecase"
+        echo "Start 4G -> 2G -> 4G Usecase"
         Start_4G_Usecase $1
         Start_Client
         Do_Sleep2
         Change_to_2G_Usecase $1
+        Do_Sleep2
+        Change_to_4G_Usecase $1
     elif [ $4 = "3G" ]; then
         echo "Start 4G -> 3G Handoverusecase"
         Start_4G_Usecase $1
